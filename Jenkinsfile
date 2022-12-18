@@ -75,6 +75,16 @@ pipeline {
                     sh 'docker image tag $JOB_NAME:v1.$BUILD_ID khadar099/$JOB_NAME:v1.$BUILD_ID'
                 }
             }
-        } 
+        }
+        stage ('push docker image to  dockerhub') {
+            steps {
+                script {
+                    withCredentials([string(credentialsId: 'dockerhub-password', variable: 'dockerhub-password')]) {
+                        sh 'docker login -u khadar099 -p ${dockerhub-password}'
+                        sh 'docker image push khadar099/$JOB_NAME:v1.$BUILD_ID'
+                    }
+                }
+            }
+        }
     }
 }
