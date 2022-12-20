@@ -80,7 +80,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([string(credentialsId: 'dockr-pswrd', variable: 'dockr-psswrd')])  {
-                        sh 'docker login -u khadar099 -p ${dockr-psswrd}'
+                        sh 'docker login -u khadar099 -p ${dockr-pswrd}'
                         sh 'docker image push khadar099/$JOB_NAME:v1.$BUILD_ID'
                     }
                 }
