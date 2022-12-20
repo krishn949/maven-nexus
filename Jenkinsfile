@@ -79,8 +79,8 @@ pipeline {
         stage ('push docker image to  dockerhub') {
             steps {
                 script {
-                    withCredentials([string(credentialsId: 'dockr-pswrd', variable: 'dockr-psswrd')])  {
-                        sh 'docker login -u khadar099 -p ${dockr-pswrd}'
+                    withCredentials([string(credentialsId: 'dockr-pswrd', variable: 'dockr_hub_cred')]) {
+                        sh 'docker login -u khadar099 -p ${dockr_hub_cred}'
                         sh 'docker image push khadar099/$JOB_NAME:v1.$BUILD_ID'
                     }
                 }
