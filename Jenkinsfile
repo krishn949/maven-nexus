@@ -82,7 +82,6 @@ pipeline {
                    // withCredentials([string(credentialsId: 'dockr-pswrd', variable: 'dockr_hub_cred')]) {
                         sh 'docker login -u khadar3099 -p Khadar@890'
                         sh 'docker image push khadar3099/$JOB_NAME:v1.$BUILD_ID'
-                        sh 'docker rmi $(docker images -q)'
                     }
                 }
             }
