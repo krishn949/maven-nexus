@@ -41,7 +41,7 @@ pipeline {
                 }
             }
         }
-        stage ('Docker Build Stage') {
+        stage ('Docker image push') {
             steps {
                 script {
                     withCredentials([string(credentialsId: 'docker_creds', variable: 'dockerpassword')]) {
