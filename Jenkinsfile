@@ -51,5 +51,13 @@ pipeline {
                 }
             }
         }
+        stage ('deploy app') {
+            steps {
+                script {
+                    sh 'ssh -t -t ubuntu@43.206.192.82 -o StrictHostKeyChecking=no'
+                    sh 'mkdir basha'
+                }
+            }
+        }
     }
 }
