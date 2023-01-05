@@ -3,22 +3,21 @@ pipeline {
     agent any 
     
     stages {
-        
-        stage('Git Checkout'){
+        stage('Git Checkout') {
             
-            steps{
+            steps {
                 
-                script{
+                script {
                     
                     git branch: 'main', url: 'https://github.com/khadar099/maven-nexus.git'
                 }
             }
         }
-        stage('UNIT testing'){
+        stage('UNIT testing') {
             
-            steps{
+            steps {
                 
-                script{
+                script {
                     
                     sh 'mvn test'
                 }
@@ -28,7 +27,7 @@ pipeline {
             
             steps {
                 
-                script{
+                script {
                     
                     sh 'mvn clean install'
                 }
