@@ -37,8 +37,8 @@ pipeline {
         stage ('Docker Build Stage') {
             steps {
                 script {
-                    sh 'docker image build -t $JOB_NAME:v1.$BUILD_ID .'
-                    sh 'docker image tag $JOB_NAME:v1.$BUILD_ID khadar3099/$JOB_NAME:v1.$BUILD_ID'
+                    sh 'sudo docker image build -t $JOB_NAME:v1.$BUILD_ID .'
+                    sh 'sudo docker image tag $JOB_NAME:v1.$BUILD_ID khadar3099/$JOB_NAME:v1.$BUILD_ID'
                 }
             }
         }
