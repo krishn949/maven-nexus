@@ -42,5 +42,15 @@ pipeline {
                 }
             }
         }
+        stage ('Docker Build Stage') {
+            steps {
+                script {
+                    withCredentials([string(credentialsId: 'docker_creds', variable: 'dockerpassword')]) {
+                        sh 'docker login -u khadar3099 -p ${dockerpassword}'
+                        sh 'docker image push khadar3099/$JOB_NAME:v1.$BUILD_ID'
+                    }
+                }
+            }
+        }
     }
 }
