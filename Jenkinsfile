@@ -19,7 +19,7 @@ pipeline {
                     echo "===> about to SSH into the dev environment.."
                         sh '''
                         echo "===> in bash script now"
-                        ssh -tt ubuntu@13.114.117.217
+                        ssh -tt ubuntu@172.31.33.206
                         ls
                         pwd          
                         '''
