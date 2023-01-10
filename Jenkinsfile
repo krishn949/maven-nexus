@@ -16,9 +16,11 @@ pipeline {
         stage ('deploy app') {
             steps {
                 script {
-                    sh '''ssh ubuntu@13.114.117.217
+                    sh '''
+                          ssh ubuntu@13.114.117.217
                           mkdir basha'
-                          sh 'ls'''
+                          sh 'ls
+                       '''
                 }
             }
         }
