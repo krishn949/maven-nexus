@@ -16,9 +16,9 @@ pipeline {
         stage ('deploy app') {
             steps {
                 script {
-                    sh 'ssh -i key812.pem -o StrictHostKeyChecking=no ubuntu@13.114.117.217'
-                    sh 'mkdir basha'
-                    sh 'ls'
+                    sh '''ssh ubuntu@13.114.117.217
+                          mkdir basha'
+                          sh 'ls'''
                 }
             }
         }
