@@ -16,7 +16,7 @@ pipeline {
         stage ('deploy app') {
             steps {
                 script {
-                    sh 'ssh -tt ubuntu@43.206.221.127 -oStrictHostKeyChecking=no'
+                    sh 'ssh -tt root@43.206.221.127 -oStrictHostKeyChecking=no'
                     sh 'mkdir basha'
                     sh 'ls'
                 }
