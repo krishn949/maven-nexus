@@ -1,28 +1,19 @@
 pipeline {
-    
-    agent any 
+    agent any
     
     stages {
-        stage('Git Checkout') {
-            
+        stage('Checkout') {
             steps {
-                
-                script {
-                    
+                // Checkout your source code from version control
+                script{
                     git branch: 'main', url: 'https://github.com/khadar099/maven-nexus.git'
                 }
             }
         }
-        stage ('deploy app') {
+        stage('Maven build') {
             steps {
-                script {
-                    echo "===> about to SSH into the dev environment.."
-                        sh '''
-                        echo "===> in bash script now"
-                        ssh -tt ubuntu@172.31.33.206 -o StrictHostKeyChecking=no
-                        ls
-                        pwd          
-                        '''
+                script{
+                    sh 'mvn clean install'
                 }
             }
         }
