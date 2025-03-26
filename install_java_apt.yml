@@ -1,0 +1,23 @@
+---
+- name: Install Java on Debian/Ubuntu machine
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Java (openjdk-11-jdk)
+      apt:
+        name: openjdk-11-jdk
+        state: present
+
+    - name: Verify Java installation
+      command: java -version
+      register: java_version
+      failed_when: "'openjdk' not in java_version.stderr"
+      changed_when: false
+
+    - name: Display Java version
+      debug:
+        var: java_version.stdout
